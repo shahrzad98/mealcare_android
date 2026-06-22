@@ -23,7 +23,6 @@ fullscreen = 0
 services = reminder:service.py:foreground
 
 android.permissions = INTERNET,POST_NOTIFICATIONS,VIBRATE,WAKE_LOCK,RECEIVE_BOOT_COMPLETED,FOREGROUND_SERVICE
-android.features = android.hardware.telephony
 
 android.api = 34
 android.ndk = 25b
