@@ -26,8 +26,8 @@ android.permissions = INTERNET,POST_NOTIFICATIONS,VIBRATE,WAKE_LOCK,RECEIVE_BOOT
 android.features = android.hardware.telephony
 
 android.api = 34
+android.ndk = 25b
 android.minapi = 26
-android.ndk = 27.0.12077973
 android.archs = arm64-v8a, armeabi-v7a
 
 android.private_storage = True
