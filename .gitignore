@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.buildozer/
+bin/
+*.log
+# Buildozer generated folders
+.buildozer/
+bin/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# VS Code local history
+.history/

@@ -1,0 +1,42 @@
+name: Build MealCare APK
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch: # Allows you to click a button to trigger it manually
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11 (Stable version for Kivy)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Linux Dependencies
+        run: |
+          sudo apt-get update
+          # Notice we DO NOT install libsdl2-dev here to prevent cross-compile pollution
+          sudo apt-get install -y python3-pip build-essential git \
+          python3-dev ffmpeg libportmidi-dev libswscale-dev libavformat-dev \
+          libavcodec-dev zlib1g-dev libncurses5-dev libffi-dev libssl-dev \
+          openjdk-17-jdk unzip autoconf libtool pkg-config zip
+
+      - name: Install Buildozer and Cython
+        run: |
+          pip install --upgrade pip
+          pip install --upgrade cython buildozer
+
+      - name: Build APK with Buildozer
+        run: |
+          buildozer -v android debug
+          
+      - name: Upload APK to Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: mealcare-apk
+          path: bin/*.apk
