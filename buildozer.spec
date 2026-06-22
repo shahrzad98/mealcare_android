@@ -43,6 +43,6 @@ android.debug_artifact   = apk
 # android.keystore_password = YOUR_PASSWORD
 # android.key_password = YOUR_PASSWORD
 
-p4a.branch = master
+p4a.branch = v2026.05.09
 log_level = 2
 warn_on_root = 1
